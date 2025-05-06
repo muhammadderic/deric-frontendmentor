@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-import type { Challenge } from "../types/types";
+import type { Challenge } from "src/types/types";
 
 type Props = {
   challenge: Challenge;

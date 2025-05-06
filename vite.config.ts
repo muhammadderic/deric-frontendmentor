@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,4 +9,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      "@challenges": path.resolve(__dirname, "./src/challenges"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@constants": path.resolve(__dirname, "./src/constants"),
+      "@pages": path.resolve(__dirname, "./src/pages"),
+      "@shared": path.resolve(__dirname, "./src/shared"),
+    },
+  },
 })

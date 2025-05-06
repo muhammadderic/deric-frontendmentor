@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
-import { challenges } from "../constants/challenges";
-import { ChallengeLevel } from "../components/ChallengeLevel";
+import { challenges } from "@constants/challenges";
+import { ChallengeLevel } from "@components/ChallengeLevel";
 
 export default function Home() {
   const hasChallenges = Object.values(challenges).some(
