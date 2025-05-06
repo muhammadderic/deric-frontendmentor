@@ -4,6 +4,7 @@ import {
 } from "react-router-dom"
 
 import Home from "@pages/Home"
+import NotFound from "@pages/NotFound"
 import QRCode from "@challenges/newbie/qr-code-component/QRCode"
 import AgeCalculator from "@challenges/junior/age-calculator/AgeCalculator"
 
@@ -17,6 +18,9 @@ function App() {
 
       {/* Junior Challenges */}
       <Route path="/junior/age-calc" element={<AgeCalculator />} />
+
+      {/* catch-all route */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
