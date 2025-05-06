@@ -5,6 +5,7 @@ import {
 
 import Home from "@pages/Home"
 import QRCode from "@challenges/newbie/qr-code-component/QRCode"
+import AgeCalculator from "@challenges/junior/age-calculator/AgeCalculator"
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
 
       {/* Newbie Challenges */}
       <Route path="/newbie/qr-code" element={<QRCode />} />
+
+      {/* Junior Challenges */}
+      <Route path="/junior/age-calc" element={<AgeCalculator />} />
     </Routes>
   )
 }

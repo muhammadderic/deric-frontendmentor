@@ -1,7 +1,7 @@
 import qrCodeImg from "./image-qr-code.png";
 
-import { BackButton } from "./components/BackButton";
-import { MDericAttribution } from "./components/MDericAttribution";
+import { BackButton } from "@components/BackButton";
+import { MDericAttribution } from "@components/MDericAttribution";
 
 export default function QRCode() {
   return (
