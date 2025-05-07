@@ -6,5 +6,6 @@ export const challenges: ChallengeGroups = {
   ],
   junior: [
     { title: "Age Calculator", path: "/junior/age-calc" },
+    { title: "News Homepage", path: "/junior/news-homepage" },
   ],
 };

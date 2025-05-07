@@ -7,6 +7,7 @@ import Home from "@pages/Home"
 import NotFound from "@pages/NotFound"
 import QRCode from "@challenges/newbie/qr-code-component/QRCode"
 import AgeCalculator from "@challenges/junior/age-calculator/AgeCalculator"
+import NewsHomepage from "@challenges/junior/news-homepage/NewsHomepage"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
       {/* Junior Challenges */}
       <Route path="/junior/age-calc" element={<AgeCalculator />} />
+      <Route path="/junior/news-homepage" element={<NewsHomepage />} />
 
       {/* catch-all route */}
       <Route path="*" element={<NotFound />} />

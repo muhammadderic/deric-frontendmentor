@@ -29,6 +29,9 @@
       ],
       "@shared/*": [
         "src/shared/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
       ]
     },
     /* Bundler mode */
