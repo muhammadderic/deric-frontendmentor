@@ -15,6 +15,9 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
       "@challenges/*": [
         "src/challenges/*"
       ],
@@ -22,7 +25,7 @@
         "src/components/*"
       ],
       "@constants/*": [
-        "src/constants/*"
+        "src/shared/constants/*"
       ],
       "@pages/*": [
         "src/pages/*"

@@ -1,5 +1,5 @@
-import type { Challenge } from "../types/types";
-import { ChallengeCard } from "./ChallengeCard";
+import type { Challenge } from "@shared/types/types";
+import { ChallengeCard } from "@shared/components";
 
 type Props = {
   level: string;

@@ -11,6 +11,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      "@app": path.resolve(__dirname, "./src/app"),
       "@challenges": path.resolve(__dirname, "./src/challenges"),
       "@components": path.resolve(__dirname, "./src/components"),
       "@constants": path.resolve(__dirname, "./src/constants"),

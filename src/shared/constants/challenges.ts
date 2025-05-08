@@ -1,4 +1,4 @@
-import type { ChallengeGroups } from "../types/types";
+import type { ChallengeGroups } from "@shared/types/types";
 
 export const challenges: ChallengeGroups = {
   newbie: [
