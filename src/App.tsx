@@ -8,6 +8,7 @@ import NotFound from "@pages/NotFound"
 import QRCode from "@challenges/newbie/qr-code-component/QRCode"
 import AgeCalculator from "@challenges/junior/age-calculator/AgeCalculator"
 import NewsHomepage from "@challenges/junior/news-homepage/NewsHomepage"
+import EComProductPage from "@challenges/intermediate/e-com-product-page/pages/EComProductPage"
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
       {/* Junior Challenges */}
       <Route path="/junior/age-calc" element={<AgeCalculator />} />
       <Route path="/junior/news-homepage" element={<NewsHomepage />} />
+
+      {/* Intermediate Challenges */}
+      <Route path="/inter/ecom-prod" element={<EComProductPage />} />
 
       {/* catch-all route */}
       <Route path="*" element={<NotFound />} />

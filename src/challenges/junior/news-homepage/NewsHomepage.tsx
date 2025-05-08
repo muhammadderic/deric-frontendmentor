@@ -1,11 +1,11 @@
-import { MDericAttribution } from "@components/MDericAttribution";
+import { MDericAttribution } from "@shared/components/MDericAttribution";
 import {
   Navbar,
   MainArticle,
   NewsSidebar,
   TopicsGrid
 } from "@challenges/junior/news-homepage/components";
-import { BackButton } from "@components/BackButton";
+import { BackButton } from "@shared/components/BackButton";
 
 const NewsHomepage: React.FC = () => {
   return (

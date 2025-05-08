@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ArrowDown } from "lucide-react";
 
-import { BackButton } from "@components/BackButton";
-import { MDericAttribution } from "@components/MDericAttribution";
+import { BackButton } from "@shared/components/BackButton";
+import { MDericAttribution } from "@shared/components/MDericAttribution";
 
 export default function AgeCalculator() {
   const [day, setDay] = useState("");
