@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
-import ramsesmironPng from '@assets/interactive-comments/images/avatars/image-ramsesmiron.png';
+import type { Comment } from "../types";
+import { useComment } from "../hooks/useComment";
 
 interface CommentBoxProps {
   text: string;
@@ -8,31 +9,8 @@ interface CommentBoxProps {
   replyingTo?: string;
 }
 
-interface Comment {
-  id: number;
-  content: string;
-  createdAt: number;
-  score: number;
-  user: {
-    username: string;
-  };
-  replies: Reply[];
-  replyingTo?: string;
-}
-
-interface Reply {
-  id: number;
-  content: string;
-  createdAt: number;
-  score: number;
-  user: {
-    username: string;
-  };
-  replyingTo?: string;
-  replies?: Reply[];
-}
-
 export default function CommentBox({ text, parentId = null, replyingTo }: CommentBoxProps) {
+  const { state, dispatch } = useComment();
   const [commentText, setCommentText] = useState("");
 
   const sendHandler = () => {
@@ -41,12 +19,13 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
     const comments: Comment[] = JSON.parse(localStorage.getItem("comments") || "[]");
 
     const newComment: Comment = {
-      "id": Date.now(), // Use timestamp for unique ID instead of array length
+      "id": Date.now(),
       "content": commentText,
       "createdAt": Date.now(),
       "score": 0,
       "user": {
-        "username": "",
+        "image": state.currentUser.image,
+        "username": state.currentUser.username,
       },
       "replies": []
     };
@@ -58,7 +37,7 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
 
     if (parentId) {
       // This is a reply to a comment
-      const updatedComments = comments.map(comment => {
+      comments.map(comment => {
         if (comment.id === parentId) {
           return {
             ...comment,
@@ -67,11 +46,8 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
         }
         return comment;
       });
-      localStorage.setItem("comments", JSON.stringify(updatedComments));
     } else {
-      // This is a new top-level comment
-      comments.push(newComment);
-      localStorage.setItem("comments", JSON.stringify(comments));
+      dispatch({ type: 'ADD_COMMENT', payload: newComment });
     }
 
     setCommentText(""); // Clear the textarea
@@ -88,11 +64,12 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
       <div className="flex justify-between items-center">
         <div className="photo-wrapper">
           <img
-            src={ramsesmironPng}
+            src={state.currentUser.image}
             alt="profile"
             className="w-10 h-10 rounded-full object-cover"
           />
         </div>
+
         <SubmitButton text={text} onClick={sendHandler} />
       </div>
     </div>

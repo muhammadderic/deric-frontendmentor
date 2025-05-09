@@ -10,14 +10,3 @@ export const useComment = () => {
   
   return context;
 };
-
-// Optional: Export convenience hooks for specific use cases
-export const useCommentState = () => {
-  const { state } = useComment();
-  return state;
-};
-
-export const useCommentDispatch = () => {
-  const { dispatch } = useComment();
-  return dispatch;
-};

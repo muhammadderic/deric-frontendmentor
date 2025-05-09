@@ -43,10 +43,10 @@ export const comments: Comment[]= [
           "content": "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
           "createdAt": "2 days ago",
           "score": 2,
-          "replyingTo": "ramsesmiron",
+          "replyingTo": "maxblagun",
           "user": {
-            "image": juliusomoPng,
-            "username": "juliusomo"
+            "image": amyrobsonPng,
+            "username": "amyrobson"
           }
         }
       ]
@@ -55,10 +55,7 @@ export const comments: Comment[]= [
 
 export const data = {
   "currentUser": {
-    "image": {
-      "png": "./images/avatars/image-juliusomo.png",
-      "webp": "./images/avatars/image-juliusomo.webp"
-    },
+    "image": juliusomoPng,
     "username": "juliusomo"
   },
   comments: comments,

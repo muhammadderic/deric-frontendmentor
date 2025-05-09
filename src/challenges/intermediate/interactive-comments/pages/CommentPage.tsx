@@ -1,9 +1,9 @@
 import Chats from "../components/Chats";
 import CommentBox from "../components/CommentBox";
-import { useCommentState } from "../hooks/useComment";
+import { useComment } from "../hooks/useComment";
 
 export default function CommentPage() {
-  const state = useCommentState();
+  const { state } = useComment();
 
   return (
     <div className="min-h-screen bg-[hsl(228,33%,97%)] py-8">

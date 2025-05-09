@@ -7,6 +7,10 @@ import type { Reply } from "../types";
 
 import iconMinus from '@assets/interactive-comments/images/icon-minus.svg';
 import iconPlus from '@assets/interactive-comments/images/icon-plus.svg';
+import iconEdit from '@assets/interactive-comments/images/icon-edit.svg';
+import iconDelete from '@assets/interactive-comments/images/icon-delete.svg';
+import iconReply from '@assets/interactive-comments/images/icon-reply.svg';
+import { changeTypeOfTime } from "../utils/changeTypeOfTime";
 
 interface ChatBoxProps {
   data: Reply;
@@ -73,9 +77,9 @@ export default function ChatBox({ data, isReply = false }: ChatBoxProps) {
             <PhotoProfile username={data.user.username} imageUrl={data.user.image} />
           </div>
           <p className="font-bold m-0">{data.user.username}</p>
-          {/* <p className="text-[hsl(211,10%,45%)] m-0 text-sm">
+          <p className="text-[hsl(211,10%,45%)] m-0 text-sm">
             {changeTypeOfTime(data.createdAt)}
-          </p> */}
+          </p>
         </div>
 
         <p className="text-[hsl(211,10%,45%)] leading-6 mb-4">
@@ -108,19 +112,19 @@ export default function ChatBox({ data, isReply = false }: ChatBoxProps) {
           {"username" === data.user.username ? (
             <div className="flex gap-4">
               <ButtonWithIcon
-                filename="icon-delete"
+                image={iconDelete}
                 text="Delete"
                 onClick={() => deleteChatHandler(data.id)}
               />
               <ButtonWithIcon
-                filename="icon-edit"
+                image={iconEdit}
                 text="Edit"
                 onClick={() => editHandler(data.id)}
               />
             </div>
           ) : (
             <ButtonWithIcon
-              filename="icon-reply"
+              image={iconReply}
               text="Reply"
               onClick={replyHandler}
             />
@@ -143,7 +147,6 @@ export default function ChatBox({ data, isReply = false }: ChatBoxProps) {
             text="REPLY"
             parentId={data.id}
             replyingTo={data.user.username}
-          // onSendComplete={handleReplyComplete}
           />
         </div>
       )}

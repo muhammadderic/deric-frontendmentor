@@ -1,32 +1,10 @@
 import { useEffect, useState } from "react";
 import SubmitButton from "./SubmitButton";
+import type { Comment } from "../types";
 
 interface CommentBoxEditProps {
   id: number;
   onEditComplete?: () => void;
-}
-
-interface Comment {
-  id: number;
-  content: string;
-  createdAt: number;
-  score: number;
-  user: {
-    username: string;
-  };
-  replies: Reply[];
-}
-
-interface Reply {
-  id: number;
-  content: string;
-  createdAt: number;
-  score: number;
-  user: {
-    username: string;
-  };
-  replyingTo?: string;
-  replies?: Reply[];
 }
 
 export default function CommentBoxEdit({ id, onEditComplete }: CommentBoxEditProps) {
@@ -54,6 +32,7 @@ export default function CommentBoxEdit({ id, onEditComplete }: CommentBoxEditPro
       "createdAt": Date.now(),
       "score": 0,
       "user": {
+        "image": "",
         "username": "",
       },
       "replies": []
@@ -62,7 +41,7 @@ export default function CommentBoxEdit({ id, onEditComplete }: CommentBoxEditPro
     comments = comments.filter(comment => comment.id !== commentId);
     comments.push(commentForm);
     // Sort by createdAt to maintain order
-    comments.sort((a, b) => a.createdAt - b.createdAt);
+    // comments.sort((a, b) => a.createdAt - b.createdAt);
     localStorage.setItem("comments", JSON.stringify(comments));
 
     if (onEditComplete) {

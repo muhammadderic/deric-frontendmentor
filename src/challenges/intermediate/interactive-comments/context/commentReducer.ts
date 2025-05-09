@@ -6,7 +6,7 @@ export const getInitialCommentState = (): CommentState => ({
   comments: data.comments,
   currentUser: {
     username: data.currentUser.username,
-    image: data.currentUser.image.png
+    image: data.currentUser.image
   }
 });
 

@@ -1,17 +1,17 @@
 interface ButtonWithIconProps {
-  filename: string;
+  image: string;
   text: string;
   onClick?: () => void;
 }
 
-export default function ButtonWithIcon({ filename, text, onClick }: ButtonWithIconProps) {
+export default function ButtonWithIcon({ image, text, onClick }: ButtonWithIconProps) {
   return (
     <button
       className="p-0 flex items-center bg-white border-none"
       onClick={onClick}
     >
       <img
-        src={`/images/${filename}.svg`}
+        src={image}
         alt="icon to manage chat"
         className="w-[15px] h-[15px]"
       />
