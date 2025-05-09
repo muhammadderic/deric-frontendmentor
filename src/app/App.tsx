@@ -9,6 +9,7 @@ import QRCode from "@challenges/newbie/qr-code-component/QRCode"
 import AgeCalculator from "@challenges/junior/age-calculator/AgeCalculator"
 import NewsHomepage from "@challenges/junior/news-homepage/NewsHomepage"
 import EComProductPage from "@challenges/intermediate/e-com-product-page/pages/EComProductPage"
+import UserCommentPage from "@challenges/intermediate/interactive-comments/pages/UserCommentPage"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
 
       {/* Intermediate Challenges */}
       <Route path="/inter/ecom-prod" element={<EComProductPage />} />
+      <Route path="/inter/interactive-comments" element={<UserCommentPage />} />
 
       {/* catch-all route */}
       <Route path="*" element={<NotFound />} />
