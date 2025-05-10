@@ -35,6 +35,36 @@ export const commentReducer = (
         }),
       };
 
+    case 'EDIT_COMMENT': {
+      const { id, content } = action.payload;
+      const currentUsername = state.currentUser.username;
+
+      const updateContent = <T extends { id: number; content: string; user: { username: string } }>(
+        item: T
+      ): T => {
+        if (item.id !== id) return item;
+        
+        // Optional: Check if user is the author
+        if (item.user.username !== currentUsername) return item;
+        
+        return {
+          ...item,
+          content: content
+        };
+      };
+
+      return {
+        ...state,
+        comments: state.comments.map(comment => {
+          const updatedComment = updateContent(comment);
+          return {
+            ...updatedComment,
+            replies: updatedComment.replies.map(reply => updateContent(reply))
+          };
+        }),
+      };
+    }
+
     case 'DELETE_COMMENT':
       return {
         ...state,

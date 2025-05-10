@@ -30,16 +30,25 @@ export default function ChatBox({ data }: ChatBoxProps) {
     if (replyBoxOpen) setReplyBoxOpen(false);
   };
 
+  const handleUnrepliedClick = () => {
+    alert("This feature will be configured in the future.");
+  };
+
   const replyHandler = () => {
     setReplyBoxOpen(!replyBoxOpen);
     if (editBoxOpen) setEditBoxOpen(false);
   };
 
   const deleteChatHandler = (id: number) => {
-    dispatch({
-      type: 'DELETE_COMMENT',
-      payload: { id, username: state.currentUser.username }
-    });
+    // Browser native confirmation popup
+    const hasConfirmed = window.confirm("Are you sure you want to delete this comment? This will remove the comment and cannot be undone.");
+
+    if (hasConfirmed) {
+      dispatch({
+        type: 'DELETE_COMMENT',
+        payload: { id, username: state.currentUser.username }
+      });
+    }
   };
 
   const handleVote = (id: number, voteType: 'plus' | 'minus') => {
@@ -47,10 +56,6 @@ export default function ChatBox({ data }: ChatBoxProps) {
       type: 'VOTE',
       payload: { id, voteType }
     });
-  };
-
-  const handleEditComplete = () => {
-    setEditBoxOpen(false);
   };
 
   return (
@@ -106,11 +111,20 @@ export default function ChatBox({ data }: ChatBoxProps) {
               />
             </div>
           ) : (
-            <ButtonWithIcon
-              image={iconReply}
-              text="Reply"
-              onClick={replyHandler}
-            />
+            // 2. Check if the current 'data' object has a 'replies' property
+            "replies" in data ? (
+              <ButtonWithIcon
+                image={iconReply}
+                text="Reply"
+                onClick={replyHandler}
+              />
+            ) : (
+              <ButtonWithIcon
+                image={iconReply} // You can use the same icon or a grayed out one
+                text="Unreplied"
+                onClick={handleUnrepliedClick}
+              />
+            )
           )}
         </div>
       </div>
@@ -119,7 +133,6 @@ export default function ChatBox({ data }: ChatBoxProps) {
         <div className="mt-4 pl-4 border-l-3 border-[hsl(239,57%,85%)]">
           <CommentBoxEdit
             id={editedChatId!}
-            onEditComplete={handleEditComplete}
           />
         </div>
       )}

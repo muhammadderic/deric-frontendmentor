@@ -33,5 +33,6 @@ export interface CommentState {
 export type CommentAction =
   | { type: 'ADD_COMMENT'; payload: Comment }
   | { type: 'ADD_REPLY'; payload: { commentId: number; reply: Reply } }
+  | { type: 'EDIT_COMMENT'; payload: { id: number; content: string } }
   | { type: 'DELETE_COMMENT'; payload: { id: number; username: string } }
   | { type: 'VOTE'; payload: { id: number; voteType: 'plus' | 'minus' } };
