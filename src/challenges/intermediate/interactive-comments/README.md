@@ -35,7 +35,7 @@ For the first time to access this website, you will be asked to register a usern
 ### Links
 
 - Solution URL: [My solution URL](https://www.frontendmentor.io/solutions/interactive-comments-site-JZSlduNkhD)
-- Live Site URL: [My live site here](https://interactive-comments-bymde.netlify.app/)
+- Live Site URL: [My live site here](https://deric-frontendmentor.vercel.app/inter/interactive-comments)
 
 ## My process
 
