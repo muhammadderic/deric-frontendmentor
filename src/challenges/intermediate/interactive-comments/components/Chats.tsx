@@ -15,7 +15,6 @@ export default function Chats({ data }: ChatsProps) {
             <ChatBox
               key={reply.id}
               data={reply}
-              isReply={true}
             />
           ))}
         </div>

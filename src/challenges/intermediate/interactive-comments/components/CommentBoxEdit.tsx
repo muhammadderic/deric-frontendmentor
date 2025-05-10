@@ -30,7 +30,7 @@ export default function CommentBoxEdit({ id, onEditComplete }: CommentBoxEditPro
       "id": commentId,
       "content": commentText,
       "createdAt": Date.now(),
-      "score": 0,
+      "votedBy": [],
       "user": {
         "image": "",
         "username": "",
@@ -40,9 +40,6 @@ export default function CommentBoxEdit({ id, onEditComplete }: CommentBoxEditPro
 
     comments = comments.filter(comment => comment.id !== commentId);
     comments.push(commentForm);
-    // Sort by createdAt to maintain order
-    // comments.sort((a, b) => a.createdAt - b.createdAt);
-    localStorage.setItem("comments", JSON.stringify(comments));
 
     if (onEditComplete) {
       onEditComplete();

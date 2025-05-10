@@ -16,13 +16,11 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
   const sendHandler = () => {
     if (!commentText.trim()) return;
 
-    const comments: Comment[] = JSON.parse(localStorage.getItem("comments") || "[]");
-
     const newComment: Comment = {
       "id": Date.now(),
       "content": commentText,
       "createdAt": Date.now(),
-      "score": 0,
+      "votedBy": [],
       "user": {
         "image": state.currentUser.image,
         "username": state.currentUser.username,
@@ -36,16 +34,7 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
     }
 
     if (parentId) {
-      // This is a reply to a comment
-      comments.map(comment => {
-        if (comment.id === parentId) {
-          return {
-            ...comment,
-            replies: [...comment.replies, newComment]
-          };
-        }
-        return comment;
-      });
+      dispatch({ type: 'ADD_REPLY', payload: { commentId: parentId, reply: newComment } });
     } else {
       dispatch({ type: 'ADD_COMMENT', payload: newComment });
     }
@@ -61,6 +50,7 @@ export default function CommentBox({ text, parentId = null, replyingTo }: Commen
         onChange={e => setCommentText(e.target.value)}
         value={commentText}
       />
+
       <div className="flex justify-between items-center">
         <div className="photo-wrapper">
           <img

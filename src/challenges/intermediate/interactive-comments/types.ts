@@ -15,7 +15,7 @@ export interface Comment {
   id: number;
   content: string;
   createdAt: string | number; // Can be either string (like "1 month ago") or timestamp
-  score: number;
+  votedBy: { username: string }[];
   user: User;
   replies: Reply[];
   replyingTo?: string; // Optional for top-level comments
@@ -32,4 +32,6 @@ export interface CommentState {
 
 export type CommentAction =
   | { type: 'ADD_COMMENT'; payload: Comment }
-  | { type: 'ADD_REPLY'; payload: { commentId: number; reply: Reply } };
+  | { type: 'ADD_REPLY'; payload: { commentId: number; reply: Reply } }
+  | { type: 'DELETE_COMMENT'; payload: { id: number; username: string } }
+  | { type: 'VOTE'; payload: { id: number; voteType: 'plus' | 'minus' } };

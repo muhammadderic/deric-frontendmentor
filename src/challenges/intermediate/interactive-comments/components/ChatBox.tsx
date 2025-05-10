@@ -11,13 +11,15 @@ import iconEdit from '@assets/interactive-comments/images/icon-edit.svg';
 import iconDelete from '@assets/interactive-comments/images/icon-delete.svg';
 import iconReply from '@assets/interactive-comments/images/icon-reply.svg';
 import { changeTypeOfTime } from "../utils/changeTypeOfTime";
+import { useComment } from "../hooks/useComment";
 
 interface ChatBoxProps {
   data: Reply;
-  isReply?: boolean;
 }
 
-export default function ChatBox({ data, isReply = false }: ChatBoxProps) {
+export default function ChatBox({ data }: ChatBoxProps) {
+  const { state, dispatch } = useComment();
+
   const [editBoxOpen, setEditBoxOpen] = useState(false);
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
   const [editedChatId, setEditedChatId] = useState<number | null>(null);
@@ -34,35 +36,17 @@ export default function ChatBox({ data, isReply = false }: ChatBoxProps) {
   };
 
   const deleteChatHandler = (id: number) => {
-    const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-
-    if (isReply) {
-      // Handle reply deletion - need to find parent and remove from replies
-      // const allComments = JSON.parse(localStorage.getItem("allComments") || localStorage.getItem("comments") || "[]");
-      // This logic depends on your data structure
-      // For now, using simple filter for top-level
-      const commentsFiltered = comments.filter((comment: any) => comment.id !== id);
-      localStorage.setItem("comments", JSON.stringify(commentsFiltered));
-    } else {
-      const commentsFiltered = comments.filter((comment: any) => comment.id !== id);
-      localStorage.setItem("comments", JSON.stringify(commentsFiltered));
-    }
+    dispatch({
+      type: 'DELETE_COMMENT',
+      payload: { id, username: state.currentUser.username }
+    });
   };
 
-  const handleVote = (voteType: 'plus' | 'minus') => {
-    const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-
-    const updatedComments = comments.map((comment: any) => {
-      if (comment.id === data.id) {
-        return {
-          ...comment,
-          score: voteType === 'plus' ? comment.score + 1 : comment.score - 1
-        };
-      }
-      return comment;
+  const handleVote = (id: number, voteType: 'plus' | 'minus') => {
+    dispatch({
+      type: 'VOTE',
+      payload: { id, voteType }
     });
-
-    localStorage.setItem("comments", JSON.stringify(updatedComments));
   };
 
   const handleEditComplete = () => {
@@ -97,19 +81,18 @@ export default function ChatBox({ data, isReply = false }: ChatBoxProps) {
               src={iconMinus}
               alt="unvote"
               className="w-[15px] cursor-pointer hover:opacity-70 transition-opacity"
-              onClick={() => handleVote('minus')}
+              onClick={() => handleVote(data.id, 'minus')}
             />
-            <p className="font-bold text-[hsl(238,40%,52%)] m-0">{data.score}</p>
+            <p className="font-bold text-[hsl(238,40%,52%)] m-0">{data.votedBy.length}</p>
             <img
               src={iconPlus}
               alt="vote"
               className="w-[15px] cursor-pointer hover:opacity-70 transition-opacity"
-              onClick={() => handleVote('plus')}
+              onClick={() => handleVote(data.id, 'plus')}
             />
           </div>
 
-          {/* TODO: Change username to be real username */}
-          {"username" === data.user.username ? (
+          {state.currentUser.username === data.user.username ? (
             <div className="flex gap-4">
               <ButtonWithIcon
                 image={iconDelete}
