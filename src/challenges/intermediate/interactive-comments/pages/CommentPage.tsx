@@ -2,7 +2,7 @@ import {
   Chats,
   CommentBox
 } from "@challenges/intermediate/interactive-comments/components";
-import { useComment } from "@challenges/intermediate/interactive-comments/hooks/useComment";
+import { useComment } from "@challenges/intermediate/interactive-comments/hooks";
 
 export default function CommentPage() {
   const { state } = useComment();

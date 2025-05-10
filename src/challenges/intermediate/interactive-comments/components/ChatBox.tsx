@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+// ChatBox.tsx (refactored component)
 import type { Reply } from "@challenges/intermediate/interactive-comments/types";
 import {
   ButtonWithIcon,
@@ -8,7 +7,7 @@ import {
   CommentBoxEdit
 } from "@challenges/intermediate/interactive-comments/components";
 import { changeTypeOfTime } from "@challenges/intermediate/interactive-comments/utils/changeTypeOfTime";
-import { useComment } from "@challenges/intermediate/interactive-comments/hooks/useComment";
+import { useChatBox } from "@challenges/intermediate/interactive-comments/hooks";
 
 import iconMinus from '@assets/interactive-comments/images/icon-minus.svg';
 import iconPlus from '@assets/interactive-comments/images/icon-plus.svg';
@@ -21,45 +20,19 @@ interface ChatBoxProps {
 }
 
 export function ChatBox({ data }: ChatBoxProps) {
-  const { state, dispatch } = useComment();
-
-  const [editBoxOpen, setEditBoxOpen] = useState(false);
-  const [replyBoxOpen, setReplyBoxOpen] = useState(false);
-  const [editedChatId, setEditedChatId] = useState<number | null>(null);
-
-  const editHandler = (id: number) => {
-    setEditBoxOpen(!editBoxOpen);
-    setEditedChatId(id);
-    if (replyBoxOpen) setReplyBoxOpen(false);
-  };
-
-  const handleUnrepliedClick = () => {
-    alert("This feature will be configured in the future.");
-  };
-
-  const replyHandler = () => {
-    setReplyBoxOpen(!replyBoxOpen);
-    if (editBoxOpen) setEditBoxOpen(false);
-  };
-
-  const deleteChatHandler = (id: number) => {
-    // Browser native confirmation popup
-    const hasConfirmed = window.confirm("Are you sure you want to delete this comment? This will remove the comment and cannot be undone.");
-
-    if (hasConfirmed) {
-      dispatch({
-        type: 'DELETE_COMMENT',
-        payload: { id, username: state.currentUser.username }
-      });
-    }
-  };
-
-  const handleVote = (id: number, voteType: 'plus' | 'minus') => {
-    dispatch({
-      type: 'VOTE',
-      payload: { id, voteType }
-    });
-  };
+  const {
+    editBoxOpen,
+    replyBoxOpen,
+    editedChatId,
+    isCurrentUser,
+    editHandler,
+    replyHandler,
+    deleteChatHandler,
+    handleVote,
+    handleUnrepliedClick
+  } = useChatBox({
+    username: data.user.username
+  });
 
   return (
     <div className="my-4 p-4 bg-white rounded-2xl shadow-[rgba(0,0,0,0.16)_0px_1px_4px]">
@@ -100,7 +73,7 @@ export function ChatBox({ data }: ChatBoxProps) {
             />
           </div>
 
-          {state.currentUser.username === data.user.username ? (
+          {isCurrentUser ? (
             <div className="flex gap-4">
               <ButtonWithIcon
                 image={iconDelete}
@@ -114,7 +87,6 @@ export function ChatBox({ data }: ChatBoxProps) {
               />
             </div>
           ) : (
-            // 2. Check if the current 'data' object has a 'replies' property
             "replies" in data ? (
               <ButtonWithIcon
                 image={iconReply}
@@ -123,7 +95,7 @@ export function ChatBox({ data }: ChatBoxProps) {
               />
             ) : (
               <ButtonWithIcon
-                image={iconReply} // You can use the same icon or a grayed out one
+                image={iconReply}
                 text="Unreplied"
                 onClick={handleUnrepliedClick}
               />

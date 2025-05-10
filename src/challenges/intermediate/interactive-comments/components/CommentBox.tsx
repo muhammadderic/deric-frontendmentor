@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { Comment } from "@challenges/intermediate/interactive-comments/types";
 import { SubmitButton } from "@challenges/intermediate/interactive-comments/components";
-import { useComment } from "@challenges/intermediate/interactive-comments/hooks/useComment";
+import { useComment } from "@challenges/intermediate/interactive-comments/hooks";
 
 interface CommentBoxProps {
   text: string;
