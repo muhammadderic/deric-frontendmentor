@@ -1,6 +1,8 @@
-import Chats from "../components/Chats";
-import CommentBox from "../components/CommentBox";
-import { useComment } from "../hooks/useComment";
+import {
+  Chats,
+  CommentBox
+} from "@challenges/intermediate/interactive-comments/components";
+import { useComment } from "@challenges/intermediate/interactive-comments/hooks/useComment";
 
 export default function CommentPage() {
   const { state } = useComment();

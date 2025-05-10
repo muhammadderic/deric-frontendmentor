@@ -1,6 +1,17 @@
-import React, { createContext, useReducer, type ReactNode } from 'react';
-import type { CommentState, CommentAction } from '../types';
-import { commentReducer, getInitialCommentState } from './commentReducer';
+import React, {
+  createContext,
+  useReducer,
+  type ReactNode
+} from 'react';
+
+import type {
+  CommentState,
+  CommentAction
+} from '@challenges/intermediate/interactive-comments/types';
+import {
+  commentReducer,
+  getInitialCommentState
+} from '@challenges/intermediate/interactive-comments/context/commentReducer';
 
 // Context type definition
 interface CommentContextType {

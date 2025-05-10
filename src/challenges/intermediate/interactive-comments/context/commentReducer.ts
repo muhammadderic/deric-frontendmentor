@@ -1,5 +1,8 @@
-import type { CommentState, CommentAction } from '../types';
-import { data } from '../constants/data';
+import type { 
+  CommentState, 
+  CommentAction 
+} from '@challenges/intermediate/interactive-comments/types';
+import { data } from '@challenges/intermediate/interactive-comments/constants/data';
 
 // Initial state factory
 export const getInitialCommentState = (): CommentState => ({

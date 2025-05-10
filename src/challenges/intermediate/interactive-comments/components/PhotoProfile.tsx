@@ -4,7 +4,7 @@ interface PhotoProfileProps {
   imageAlt?: string;
 }
 
-export default function PhotoProfile({ username, imageUrl, imageAlt }: PhotoProfileProps) {
+export function PhotoProfile({ username, imageUrl, imageAlt }: PhotoProfileProps) {
   // If imageUrl is provided, show the image
   if (imageUrl) {
     return (

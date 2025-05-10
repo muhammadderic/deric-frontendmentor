@@ -1,23 +1,26 @@
 import { useState } from "react";
-import ButtonWithIcon from "./ButtonWithIcon";
-import CommentBox from "./CommentBox";
-import PhotoProfile from "./PhotoProfile";
-import CommentBoxEdit from "./CommentBoxEdit";
-import type { Reply } from "../types";
+
+import type { Reply } from "@challenges/intermediate/interactive-comments/types";
+import {
+  ButtonWithIcon,
+  CommentBox,
+  PhotoProfile,
+  CommentBoxEdit
+} from "@challenges/intermediate/interactive-comments/components";
+import { changeTypeOfTime } from "@challenges/intermediate/interactive-comments/utils/changeTypeOfTime";
+import { useComment } from "@challenges/intermediate/interactive-comments/hooks/useComment";
 
 import iconMinus from '@assets/interactive-comments/images/icon-minus.svg';
 import iconPlus from '@assets/interactive-comments/images/icon-plus.svg';
 import iconEdit from '@assets/interactive-comments/images/icon-edit.svg';
 import iconDelete from '@assets/interactive-comments/images/icon-delete.svg';
 import iconReply from '@assets/interactive-comments/images/icon-reply.svg';
-import { changeTypeOfTime } from "../utils/changeTypeOfTime";
-import { useComment } from "../hooks/useComment";
 
 interface ChatBoxProps {
   data: Reply;
 }
 
-export default function ChatBox({ data }: ChatBoxProps) {
+export function ChatBox({ data }: ChatBoxProps) {
   const { state, dispatch } = useComment();
 
   const [editBoxOpen, setEditBoxOpen] = useState(false);

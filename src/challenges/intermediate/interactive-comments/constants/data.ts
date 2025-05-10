@@ -1,4 +1,4 @@
-import type { Comment } from "../types"
+import type { Comment } from "@challenges/intermediate/interactive-comments/types"
 
 import amyrobsonPng from '@assets/interactive-comments/images/avatars/image-amyrobson.png';
 import maxblagunPng from '@assets/interactive-comments/images/avatars/image-maxblagun.png';

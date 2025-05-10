@@ -2,8 +2,8 @@ import {
   BackButton,
   MDericAttribution
 } from "@shared/components";
-import { CommentProvider } from "../context/CommentContext";
-import CommentPage from "./CommentPage";
+import { CommentProvider } from "@challenges/intermediate/interactive-comments/context/CommentContext";
+import CommentPage from "@challenges/intermediate/interactive-comments/pages/CommentPage";
 
 function UserCommentPage() {
   return (

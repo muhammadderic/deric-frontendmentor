@@ -1,6 +1,10 @@
-import { useState, useEffect } from 'react';
-import SubmitButton from './SubmitButton';
-import { useComment } from '../hooks/useComment';
+import {
+  useState,
+  useEffect
+} from 'react';
+
+import { SubmitButton } from '@challenges/intermediate/interactive-comments/components';
+import { useComment } from '@challenges/intermediate/interactive-comments/hooks/useComment';
 
 interface CommentBoxEditProps {
   id: number;
@@ -8,7 +12,7 @@ interface CommentBoxEditProps {
   onSuccess?: () => void;
 }
 
-export default function CommentBoxEdit({ id, onCancel, onSuccess }: CommentBoxEditProps) {
+export function CommentBoxEdit({ id, onCancel, onSuccess }: CommentBoxEditProps) {
   const { state, dispatch } = useComment();
   const [commentText, setCommentText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

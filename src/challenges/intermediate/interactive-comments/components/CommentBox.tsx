@@ -1,7 +1,8 @@
 import { useState } from "react";
-import SubmitButton from "./SubmitButton";
-import type { Comment } from "../types";
-import { useComment } from "../hooks/useComment";
+
+import type { Comment } from "@challenges/intermediate/interactive-comments/types";
+import { SubmitButton } from "@challenges/intermediate/interactive-comments/components";
+import { useComment } from "@challenges/intermediate/interactive-comments/hooks/useComment";
 
 interface CommentBoxProps {
   text: string;
@@ -9,7 +10,7 @@ interface CommentBoxProps {
   replyingTo?: string;
 }
 
-export default function CommentBox({ text, parentId = null, replyingTo }: CommentBoxProps) {
+export function CommentBox({ text, parentId = null, replyingTo }: CommentBoxProps) {
   const { state, dispatch } = useComment();
   const [commentText, setCommentText] = useState("");
 

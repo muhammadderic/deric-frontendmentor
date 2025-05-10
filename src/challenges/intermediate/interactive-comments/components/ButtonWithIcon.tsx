@@ -4,7 +4,7 @@ interface ButtonWithIconProps {
   onClick?: () => void;
 }
 
-export default function ButtonWithIcon({ image, text, onClick }: ButtonWithIconProps) {
+export function ButtonWithIcon({ image, text, onClick }: ButtonWithIconProps) {
   return (
     <button
       className="p-0 flex items-center bg-white border-none"

@@ -1,11 +1,11 @@
-import type { Comment } from "../types";
-import ChatBox from "./ChatBox";
+import type { Comment } from "@challenges/intermediate/interactive-comments/types";
+import { ChatBox } from "@challenges/intermediate/interactive-comments/components";
 
 interface ChatsProps {
   data: Comment;
 }
 
-export default function Chats({ data }: ChatsProps) {
+export function Chats({ data }: ChatsProps) {
   return (
     <div>
       <ChatBox data={data} />

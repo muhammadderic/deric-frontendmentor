@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CommentContext } from '../context/CommentContext';
+import { CommentContext } from '@challenges/intermediate/interactive-comments/context/CommentContext';
 
 export const useComment = () => {
   const context = useContext(CommentContext);
