@@ -12,4 +12,7 @@ export const challenges: ChallengeGroups = {
     { title: "E-Commerce Product Page", path: "/inter/ecom-prod" },
     { title: "Interactive Comments", path: "/inter/interactive-comments" },
   ],
+  advanced: [
+    { title: "Multi-Step Form", path: "/adv/multi-step-form" },
+  ],
 };
