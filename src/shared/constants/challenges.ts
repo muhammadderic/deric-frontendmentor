@@ -14,5 +14,6 @@ export const challenges: ChallengeGroups = {
   ],
   advanced: [
     { title: "Multi-Step Form", path: "/adv/multi-step-form" },
+    { title: "Rock Paper Scissors", path: "/adv/rps" },
   ],
 };

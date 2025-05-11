@@ -11,6 +11,7 @@ import NewsHomepage from "@challenges/junior/news-homepage/NewsHomepage"
 import EComProductPage from "@challenges/intermediate/e-com-product-page/pages/EComProductPage"
 import UserCommentPage from "@challenges/intermediate/interactive-comments/pages/UserCommentPage"
 import { MultiStepFormContainerPage } from "@challenges/advanced/multi-step-form"
+import { RPSContainerPage } from "@challenges/advanced/rock-paper-scissors"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
 
       {/* Advanced Challenges */}
       <Route path="/adv/multi-step-form" element={<MultiStepFormContainerPage />} />
+      <Route path="/adv/rps" element={<RPSContainerPage />} />
 
       {/* catch-all route */}
       <Route path="*" element={<NotFound />} />
