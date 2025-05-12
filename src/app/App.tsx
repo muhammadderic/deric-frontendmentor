@@ -13,6 +13,7 @@ import UserCommentPage from "@challenges/intermediate/interactive-comments/pages
 import { MultiStepFormContainerPage } from "@challenges/advanced/multi-step-form"
 import { RPSContainerPage } from "@challenges/advanced/rock-paper-scissors"
 import { RESTCountriesContainerPage } from "@challenges/advanced/rest-countries-api"
+import { CalcContainerPage } from "@challenges/intermediate/calculator"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       {/* Intermediate Challenges */}
       <Route path="/inter/ecom-prod" element={<EComProductPage />} />
       <Route path="/inter/interactive-comments" element={<UserCommentPage />} />
+      <Route path="/inter/calc" element={<CalcContainerPage />} />
 
       {/* Advanced Challenges */}
       <Route path="/adv/multi-step-form" element={<MultiStepFormContainerPage />} />

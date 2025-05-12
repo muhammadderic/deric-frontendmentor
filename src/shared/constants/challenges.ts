@@ -9,6 +9,7 @@ export const challenges: ChallengeGroups = {
   intermediate: [
     { title: "E-Commerce Product Page", path: "/inter/ecom-prod" },
     { title: "Interactive Comments", path: "/inter/interactive-comments" },
+    { title: "Calculator", path: "/inter/calc" },
   ],
   junior: [
     { title: "Age Calculator", path: "/junior/age-calc" },
