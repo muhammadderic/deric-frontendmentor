@@ -10,6 +10,7 @@ export const useCalculator = () => {
   const [waitingForOperand, setWaitingForOperand] = useState<boolean>(false);
   const [expression, setExpression] = useState<string>('');
 
+  // ===== Handlers =====
   const handleNumber = useCallback((num: string) => {
     if (waitingForOperand) {
       setDisplayValue(num);

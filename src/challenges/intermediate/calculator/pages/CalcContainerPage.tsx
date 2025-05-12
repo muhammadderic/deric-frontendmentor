@@ -1,21 +1,16 @@
-import {
-  BackButton,
-  MDericAttribution
-} from "@shared/components";
+import { Provider } from "react-redux";
 
 import { Calculator } from "./Calculator";
+import { store } from "../store";
+
+import '../styles/calculator-theme.css';
 
 export function CalcContainerPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-between font-sans p-4">
+    <Provider store={store}>
       <div>
-        <BackButton to="/" />
+        <Calculator />
       </div>
-
-      <Calculator />
-
-      {/* Attribution */}
-      <MDericAttribution />
-    </div>
+    </Provider>
   );
 }

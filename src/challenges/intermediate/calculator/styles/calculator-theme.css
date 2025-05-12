@@ -1,0 +1,149 @@
+/* Custom theme colors for calculator application */
+
+/* ============================================ */
+/* THEME 1 - Navy & Red Theme                   */
+/* ============================================ */
+[data-theme="calc-theme-1"] {
+  /* Backgrounds */
+  --bg-main: hsl(222, 26%, 31%);           /* Navy 850 - main background */
+  --bg-toggle-keypad: hsl(223, 31%, 20%);  /* Navy 900 - toggle & keypad background */
+  --bg-screen: hsl(224, 36%, 15%);         /* Navy 950 - screen background */
+  
+  /* Keys - Navy */
+  --key-bg-primary: hsl(225, 21%, 49%);    /* Navy 700 - key background */
+  --key-shadow-primary: hsl(224, 28%, 35%); /* Navy 800 - key shadow */
+  
+  /* Keys - Red (Toggle & Special keys) */
+  --key-bg-accent: hsl(6, 63%, 50%);       /* Red 600 - toggle & special keys */
+  --key-shadow-accent: hsl(6, 70%, 34%);   /* Red 800 - key shadow */
+  
+  /* Keys - Gray (Secondary keys) */
+  --key-bg-secondary: hsl(0, 0%, 90%);     /* Gray 200 - secondary keys */
+  --key-shadow-secondary: hsl(28, 16%, 65%); /* Gray Orange 400 - key shadow */
+  
+  /* Text Colors */
+  --text-primary: hsl(221, 14%, 31%);      /* Navy 750 - primary text */
+  --text-contrast: hsl(0, 100%, 100%);        /* White - text on dark backgrounds */
+  
+  /* Component mappings */
+  --bg-color: var(--bg-main);
+  --text-color: var(--text-contrast);
+}
+
+/* ============================================ */
+/* THEME 2 - Light Gray & Blue Theme           */
+/* ============================================ */
+[data-theme="calc-theme-2"] {
+  /* Backgrounds */
+  --bg-main: hsl(0, 0%, 90%);              /* Gray 200 - main background */
+  --bg-toggle-keypad: hsl(0, 5%, 81%);     /* Gray 300 - toggle & keypad background */
+  --bg-screen: hsl(0, 5%, 81%);           /* Gray 100 - screen background */
+  
+  /* Keys - Blue */
+  --key-bg-primary: hsl(185, 42%, 37%);    /* Blue 500 - key background */
+  --key-shadow-primary: hsl(185, 58%, 25%); /* Blue 600 - key shadow */
+  
+  /* Keys - Orange (Toggle & Special keys) */
+  --key-bg-accent: hsl(25, 98%, 40%);      /* Orange 700 - toggle & special keys */
+  --key-shadow-accent: hsl(25, 99%, 27%);  /* Orange 800 - key shadow */
+  
+  /* Keys - Gray (Secondary keys) */
+  --key-bg-secondary: hsl(0, 0%, 90%);     /* Gray 200 - secondary keys */
+  --key-shadow-secondary: hsl(35, 11%, 61%); /* Gray Orange 450 - key shadow */
+  
+  /* Text Colors */
+  --text-primary: hsl(60, 10%, 19%);       /* Gray 900 - primary text */
+  --text-contrast: hsl(60, 10%, 19%);
+  
+  /* Component mappings */
+  --bg-color: var(--bg-main);
+  --text-color: var(--text-primary);
+}
+
+/* ============================================ */
+/* THEME 3 - Purple & Cyan Theme               */
+/* ============================================ */
+[data-theme="calc-theme-3"] {
+  /* Backgrounds */
+  --bg-main: hsl(268, 75%, 9%);            /* Purple 950 - main background */
+  --bg-toggle-keypad: hsl(268, 71%, 12%);  /* Purple 900 - toggle, keypad & screen background */
+  --bg-screen: hsl(268, 71%, 12%);         /* Purple 900 - screen background */
+  
+  /* Keys - Purple */
+  --key-bg-primary: hsl(281, 89%, 26%);    /* Purple 800 - key background */
+  --key-shadow-primary: hsl(285, 91%, 52%); /* Purple 400 - key shadow */
+  
+  /* Keys - Cyan (Toggle & Special keys) */
+  --key-bg-accent: hsl(176, 100%, 44%);    /* Cyan 500 - toggle & special keys */
+  --key-shadow-accent: hsl(177, 92%, 70%); /* Cyan 400 - key shadow */
+  
+  /* Keys - Dark Purple (Secondary keys) */
+  --key-bg-secondary: hsl(268, 47%, 21%);  /* Purple 850 - secondary keys */
+  --key-shadow-secondary: hsl(290, 70%, 36%); /* Purple 750 - key shadow */
+  
+  /* Text Colors */
+  --text-primary: hsl(52, 100%, 62%);      /* Yellow 300 - primary text */
+  --text-secondary: hsl(198, 20%, 13%);    /* Blue 950 - secondary text */
+  --text-contrast: hsl(0, 100%, 100%);        /* White - text on dark backgrounds */
+  
+  /* Component mappings */
+  --bg-color: var(--bg-main);
+  --text-color: var(--text-primary);
+}
+
+/* ============================================ */
+/* BASE COMPONENT STYLES                        */
+/* ============================================ */
+.calculator-container {
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional: Additional component styles for better theme integration */
+.calculator-screen {
+  background-color: var(--bg-screen);
+  color: var(--text-contrast);
+}
+
+.calculator-keypad {
+  background-color: var(--bg-toggle-keypad);
+}
+
+.key-primary {
+  background-color: var(--key-bg-primary);
+  box-shadow: 0 4px 0 var(--key-shadow-primary);
+  color: var(--text-contrast);
+}
+
+.key-accent {
+  background-color: var(--key-bg-accent);
+  box-shadow: 0 4px 0 var(--key-shadow-accent);
+  color: var(--text-contrast);
+}
+
+.key-secondary {
+  background-color: var(--key-bg-secondary);
+  box-shadow: 0 4px 0 var(--key-shadow-secondary);
+  color: var(--text-primary);
+}
+
+/* Toggle switch styling */
+.calculator-toggle {
+  background-color: var(--key-bg-accent);
+}
+
+/* Hover effects */
+.key-primary:hover,
+.key-accent:hover,
+.key-secondary:hover {
+  filter: brightness(110%);
+  transform: translateY(-2px);
+}
+
+.key-primary:active,
+.key-accent:active,
+.key-secondary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--key-shadow-primary);
+}
