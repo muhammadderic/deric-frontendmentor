@@ -34,7 +34,10 @@ export function Calculator() {
 
         {/* Buttons Grid */}
         <div className="grid grid-cols-4 gap-3">
-          {/* Second row */}
+          {/* First row */}
+          <CalculatorBtn variant="number" onClick={() => handleNumber('8')}>
+            <p>7</p>
+          </CalculatorBtn>
           <CalculatorBtn variant="number" onClick={() => handleNumber('8')}>
             <p>8</p>
           </CalculatorBtn>
@@ -44,11 +47,8 @@ export function Calculator() {
           <CalculatorBtn variant="function" onClick={handleDelete}>
             <p>DEL</p>
           </CalculatorBtn>
-          <CalculatorBtn variant="operator" onClick={() => handleOperator('/')}>
-            <p>÷</p>
-          </CalculatorBtn>
 
-          {/* Third row */}
+          {/* Second row */}
           <CalculatorBtn variant="number" onClick={() => handleNumber('4')}>
             <p>4</p>
           </CalculatorBtn>
@@ -58,11 +58,11 @@ export function Calculator() {
           <CalculatorBtn variant="number" onClick={() => handleNumber('6')}>
             <p>6</p>
           </CalculatorBtn>
-          <CalculatorBtn variant="operator" onClick={() => handleOperator('*')}>
-            <p>×</p>
+          <CalculatorBtn variant="operator" onClick={() => handleOperator('+')}>
+            <p>+</p>
           </CalculatorBtn>
 
-          {/* Fourth row */}
+          {/* Third row */}
           <CalculatorBtn variant="number" onClick={() => handleNumber('1')}>
             <p>1</p>
           </CalculatorBtn>
@@ -76,29 +76,32 @@ export function Calculator() {
             <p>-</p>
           </CalculatorBtn>
 
-          {/* Fifth row */}
+          {/* Fourth row */}
           <CalculatorBtn variant="function" onClick={handleDecimal}>
             <p>.</p>
           </CalculatorBtn>
           <CalculatorBtn variant="number" onClick={() => handleNumber('0')}>
             <p>0</p>
           </CalculatorBtn>
+          <CalculatorBtn variant="operator" onClick={() => handleOperator('/')}>
+            <p>/</p>
+          </CalculatorBtn>
+          <CalculatorBtn variant="operator" onClick={() => handleOperator('*')}>
+            <p>×</p>
+          </CalculatorBtn>
+
+          {/* Fifth row */}
+          <CalculatorBtn variant="function" onClick={handleClear}>
+            <p>RESET</p>
+          </CalculatorBtn>
           <CalculatorBtn variant="operator" onClick={handleNegate}>
             <p>±</p>
           </CalculatorBtn>
-          <CalculatorBtn variant="operator" onClick={() => handleOperator('+')}>
-            <p>+</p>
-          </CalculatorBtn>
-
-          {/* Sixth row */}
           <div className="col-span-2">
-            <CalculatorBtn variant="function" onClick={handleClear}>
-              <p>RESET</p>
+            <CalculatorBtn variant="operator" onClick={handleCalculate}>
+              <p>=</p>
             </CalculatorBtn>
           </div>
-          <CalculatorBtn variant="operator" onClick={handleCalculate}>
-            <p>=</p>
-          </CalculatorBtn>
         </div>
       </div>
     </div>
