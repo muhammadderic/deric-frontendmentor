@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* Enables manual class-based dark mode in tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Implementation: REST Countries API */ 
+  /* Custom Colors requirements */
+  --color-elements-dark: hsl(209, 23%, 22%);
+  --color-bg-dark: hsl(207, 26%, 17%);
+  --color-text-light-mode: hsl(200, 15%, 8%);
+  --color-input-light: hsl(0, 0%, 52%); /* Adjusted for better contrast */
+  --color-bg-light: hsl(0, 0%, 98%);
+  --color-white-custom: hsl(0, 0%, 100%);
+
+  /* Optional: Custom Shadows */
+  --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
