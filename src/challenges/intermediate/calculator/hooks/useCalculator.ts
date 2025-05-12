@@ -18,7 +18,27 @@ export const useCalculator = () => {
     } else {
       setDisplayValue(prev => (prev === '0' ? num : prev + num));
     }
-  }, [waitingForOperand]);
+
+    // Check if the number is a square operation
+    if (num === "√") {
+      // Check if the display value is a number
+      if (!isNaN(Number(displayValue))) {
+        // Calculate the square root of the number
+        const result = Number(displayValue) ** 0.5;
+        setDisplayValue(result.toString());
+      }
+    }
+
+    // Check if the number is a square operation
+    if (num === "²") {
+      // Check if the display value is a number
+      if (!isNaN(Number(displayValue))) {
+        // Calculate the square of the number
+        const result = Number(displayValue) ** 2;
+        setDisplayValue(result.toString());
+      }
+    }
+  }, [waitingForOperand, displayValue]);
 
   const handleDecimal = useCallback(() => {
     if (waitingForOperand) {
@@ -28,6 +48,14 @@ export const useCalculator = () => {
       setDisplayValue(prev => prev + '.');
     }
   }, [waitingForOperand, displayValue]);
+
+  // handle1OverX
+  const handle1OverX = useCallback(() => {
+    if (!displayValue) return;
+
+    const result = 1 / Number(displayValue);
+    setDisplayValue(result.toString());
+  }, [displayValue]);
 
   const handleClear = useCallback(() => {
     setDisplayValue('0');
@@ -102,6 +130,7 @@ export const useCalculator = () => {
     handleNumber,
     handleOperator,
     handleCalculate,
+    handle1OverX,
     handleClear,
     handleDelete,
     handleDecimal,
