@@ -24,13 +24,14 @@ Users should be able to:
 - See the size of the elements adjust based on their device's screen size
 - Perform mathmatical operations like addition, subtraction, multiplication, and division
 - Adjust the color theme based on their preference
+- This calculator also supports scientific calculations such as square, root, and 1/x.
 
 ### Screenshot
 
 <p align="center">
   <img src="./calculator-desktop.png" width="75%" alt="Desktop Version" />
   <br /><br />
-  <img src="./calculator-mobile.png" width="35%" alt="Mobile Version" />
+  <img src="./calculator-mobile.jpeg" width="35%" alt="Mobile Version" />
 </p>
 
 ### Links
