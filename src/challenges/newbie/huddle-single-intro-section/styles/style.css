@@ -1,0 +1,23 @@
+.huddle-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: hsl(257, 40%, 49%);
+  background-repeat: no-repeat;
+  background-position: top center;
+  /* Use bg-size: contain for the mobile look, cover for desktop */
+  background-size: contain; 
+}
+
+/* Mobile Background (Default) */
+.huddle-bg-layer {
+  background-image: url('../assets/bg-mobile.svg');
+}
+
+/* Desktop Background (Media Query) */
+@media (min-width: 768px) {
+  .huddle-bg-layer {
+    background-image: url('../assets/bg-desktop.svg');
+    background-size: cover;
+  }
+}

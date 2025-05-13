@@ -17,5 +17,6 @@ export const challenges: ChallengeGroups = {
   ],
   newbie: [
     { title: "QR Code", path: "/newbie/qr-code" },
+    { title: "Huddle Dashboard", path: "/newbie/huddle-sis" },
   ],
 };
