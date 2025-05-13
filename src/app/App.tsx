@@ -21,6 +21,7 @@ import { CalcContainerPage } from "@challenges/intermediate/calculator"
 import { MultiStepFormContainerPage } from "@challenges/advanced/multi-step-form"
 import { RPSContainerPage } from "@challenges/advanced/rock-paper-scissors"
 import { RESTCountriesContainerPage } from "@challenges/advanced/rest-countries-api"
+import { MainContainerLayout } from "@shared/components/layouts/MainContainerLayout"
 
 function App() {
   return (
@@ -28,12 +29,9 @@ function App() {
       <Route path="/" element={<Home />} />
 
       {/* Newbie Challenges */}
-      <Route path="/newbie/qr-code" element={<QRCode />} />
       <Route path="/newbie/huddle-sis" element={<HuddleSISContainerPage />} />
 
       {/* Junior Challenges */}
-      <Route path="/junior/age-calc" element={<AgeCalculator />} />
-      <Route path="/junior/news-homepage" element={<NewsHomepage />} />
 
       {/* Intermediate Challenges */}
       <Route path="/inter/ecom-prod" element={<EComProductPage />} />
@@ -44,6 +42,15 @@ function App() {
       <Route path="/adv/multi-step-form" element={<MultiStepFormContainerPage />} />
       <Route path="/adv/rps" element={<RPSContainerPage />} />
       <Route path="/adv/countries" element={<RESTCountriesContainerPage />} />
+
+      <Route element={<MainContainerLayout />}>
+        {/* Newbie Challenges */}
+        <Route path="/newbie/qr-code" element={<QRCode />} />
+
+        {/* Junior Challenges */}
+        <Route path="/junior/age-calc" element={<AgeCalculator />} />
+        <Route path="/junior/news-homepage" element={<NewsHomepage />} />
+      </Route>
 
       {/* catch-all route */}
       <Route path="*" element={<NotFound />} />
