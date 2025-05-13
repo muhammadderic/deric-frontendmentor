@@ -20,8 +20,11 @@ export function HuddleDashboard() {
         <div className="flex-1">
           <img
             src={mockupIllustration}
+            width={650}
+            height={450}
             alt="Huddle App Interface Illustration"
             className="w-full max-w-xl mx-auto"
+            decoding="async"
           />
         </div>
 
