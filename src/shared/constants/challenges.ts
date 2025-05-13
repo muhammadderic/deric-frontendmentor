@@ -19,5 +19,6 @@ export const challenges: ChallengeGroups = {
     { title: "QR Code", path: "/newbie/qr-code" },
     { title: "Huddle Dashboard", path: "/newbie/huddle-sis" },
     { title: "Single Price Grid", path: "/newbie/single-price-grid" },
+    { title: "Intro Signup Form", path: "/newbie/intro-signup-form" },
   ],
 };

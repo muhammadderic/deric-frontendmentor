@@ -11,8 +11,12 @@ import NewsHomepage from "@challenges/junior/news-homepage/NewsHomepage"
 import EComProductPage from "@challenges/intermediate/e-com-product-page/pages/EComProductPage"
 import UserCommentPage from "@challenges/intermediate/interactive-comments/pages/UserCommentPage"
 
+import { MainContainerLayout } from "@shared/components/layouts/MainContainerLayout"
+
 // Newbie
 import { HuddleSISContainerPage } from "@challenges/newbie/huddle-single-intro-section"
+import { SinglePriceGrid } from "@challenges/newbie/single-price-grid"
+import { IntroSignupForm } from "@challenges/newbie/intro-sign-up"
 
 // Intermediate
 import { CalcContainerPage } from "@challenges/intermediate/calculator"
@@ -21,8 +25,6 @@ import { CalcContainerPage } from "@challenges/intermediate/calculator"
 import { MultiStepFormContainerPage } from "@challenges/advanced/multi-step-form"
 import { RPSContainerPage } from "@challenges/advanced/rock-paper-scissors"
 import { RESTCountriesContainerPage } from "@challenges/advanced/rest-countries-api"
-import { MainContainerLayout } from "@shared/components/layouts/MainContainerLayout"
-import { SinglePriceGrid } from "@challenges/newbie/single-price-grid"
 
 function App() {
   return (
@@ -48,6 +50,7 @@ function App() {
         {/* Newbie Challenges */}
         <Route path="/newbie/qr-code" element={<QRCode />} />
         <Route path="/newbie/single-price-grid" element={<SinglePriceGrid />} />
+        <Route path="/newbie/intro-signup-form" element={<IntroSignupForm />} />
 
         {/* Junior Challenges */}
         <Route path="/junior/age-calc" element={<AgeCalculator />} />
